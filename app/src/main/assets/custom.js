@@ -29,3 +29,9 @@ window.open = function (url, target, features) {
 }
 
 document.addEventListener('click', hookClick, { capture: true })
+// 禁止手势滑动返回
+const disableSwipeBack = () => {
+  document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+  document.body.classList.add('disable-scroll'); // 若已添加 CSS
+};
+disableSwipeBack();
